@@ -6,10 +6,11 @@ const useFetch = (planetName) => {
     const [isLoading, setIsLoading] = useState(true);
     const [isError, setIsError] = useState(false);
     const [planetData, setPlanetData] = useState({});
-
+    
     useEffect(() => {
         (async (planetName) => {
             setIsError(false);
+            setIsLoading(true);
             try {
                 //const source = `${url}query=select+*+from+pscomppars+where+pl_name=${planetName}&limit=1&format=json`;
                 const source = `${url}/'${planetName}'`;
@@ -18,9 +19,9 @@ const useFetch = (planetName) => {
                     method: "GET"
                 });
 
-                const dataObject = await response.json();
+                const data = await response.json();
 
-                setPlanetData(dataObject);
+                setPlanetData(data);
             } catch (err) {
                 setIsError(true);
             }
@@ -28,7 +29,7 @@ const useFetch = (planetName) => {
         })(planetName);
     }, [planetName])
 
-    return { isLoading, isError, planetData };
+    return { isLoading, isError, planetData, setPlanetData };
 }
 
 export { useFetch };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import slugify from 'react-slugify';
 import { FaSearch } from "react-icons/fa";
@@ -10,11 +10,13 @@ const PlanetForm = () => {
     const [input, setInput] = useState(planetQuery);
     const navigate = useNavigate();
 
-    const handleFormSubmit = (e) => {
+    const handleFormSubmit = async (e) => {
         e.preventDefault();
+        setInput(document.querySelector('#planetName').value);
         searchPlanet(input);
+        window.localStorage.setItem('pl_name', input);
         navigate(`/planets/${
-            slugify(planetQuery.toLowerCase(), {delimiter: '-',})
+            slugify(input.toLowerCase(), {delimiter: '-',})
         }`);
     };
 
@@ -25,8 +27,10 @@ const PlanetForm = () => {
                     <h4>Search by Name:</h4>
                 </label>
                 <div>
-                    <input id="planetName" placeholder={planetQuery} value={input} 
-                    onChange={(e) => setInput(e.target.value)}/>
+                    <input id="planetName" placeholder={planetQuery} value={input}
+                    onChange={(e) => {
+                        setInput(e.target.value);
+                    }}/>
                     <button type="submit">
                         <FaSearch />
                     </button>

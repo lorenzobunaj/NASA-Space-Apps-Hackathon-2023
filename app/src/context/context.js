@@ -4,13 +4,16 @@ import { useFetch } from "../hooks/useFetch";
 const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
-    const [planetQuery, setPlanetQuery] = useState('11 Com b');
+    const [planetQuery, setPlanetQuery] = useState(
+        window.localStorage.getItem('pl_name') || '11 Com b'
+    );
+
+    const { isLoading, isError, planetData, setPlanetData } = useFetch(planetQuery);
 
     const searchPlanet = (input) => {
+        console.log(input);
         setPlanetQuery(input);
     };
-
-    const { isLoading, isError, planetData } = useFetch(planetQuery);
 
     return (
         <AppContext.Provider value={
@@ -19,7 +22,8 @@ const AppProvider = ({ children }) => {
                 searchPlanet,
                 isLoading,
                 isError,
-                planetData
+                planetData,
+                setPlanetData
             }
         }>
             {children}
