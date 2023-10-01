@@ -29,7 +29,7 @@ const useFetch = (planetName) => {
         })(planetName);
     }, [planetName])
 
-    return { isLoading, isError, planetData, setPlanetData };
+    return { isLoading, isError, planetData };
 }
 
 export { useFetch };

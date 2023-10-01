@@ -1,21 +1,20 @@
 import React from 'react';
-import { useEffect } from 'react';
 import { useAppContext } from '../../context/context';
 
 const PlanetCard = () => {
-    const { planetQuery, isLoading, isError, planetData } = useAppContext();
+    const { isLoading, isError, planetData } = useAppContext();
 
     if (isError) {
         return (
             <>
-                 <h1>Error</h1>
+                <h1>Error</h1>
             </>
         )
     }
     if (isLoading) {
         return (
             <>
-                 <h1>Loading...</h1>
+                <h1>Loading...</h1>
             </>
         )
     }

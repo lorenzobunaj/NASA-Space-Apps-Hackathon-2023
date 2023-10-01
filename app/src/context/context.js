@@ -8,7 +8,7 @@ const AppProvider = ({ children }) => {
         window.localStorage.getItem('pl_name') || '11 Com b'
     );
 
-    const { isLoading, isError, planetData, setPlanetData } = useFetch(planetQuery);
+    const { isLoading, isError, planetData } = useFetch(planetQuery);
 
     const searchPlanet = (input) => {
         console.log(input);
@@ -22,8 +22,7 @@ const AppProvider = ({ children }) => {
                 searchPlanet,
                 isLoading,
                 isError,
-                planetData,
-                setPlanetData
+                planetData
             }
         }>
             {children}

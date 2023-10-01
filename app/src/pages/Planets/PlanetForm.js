@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import slugify from 'react-slugify';
 import { FaSearch } from "react-icons/fa";
@@ -10,7 +10,7 @@ const PlanetForm = () => {
     const [input, setInput] = useState(planetQuery);
     const navigate = useNavigate();
 
-    const handleFormSubmit = async (e) => {
+    const handleFormSubmit = (e) => {
         e.preventDefault();
         setInput(document.querySelector('#planetName').value);
         searchPlanet(input);
@@ -28,9 +28,7 @@ const PlanetForm = () => {
                 </label>
                 <div>
                     <input id="planetName" placeholder={planetQuery} value={input}
-                    onChange={(e) => {
-                        setInput(e.target.value);
-                    }}/>
+                    onChange={(e) => {setInput(e.target.value)}}/>
                     <button type="submit">
                         <FaSearch />
                     </button>
