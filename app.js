@@ -19,13 +19,6 @@ const app = express();
 // Express attempts to determine the IP address of the client connected through the front-facing proxy
 app.enable('trust proxy');
 
-// set Pug as view engine and views as the templates folder
-app.set('view engine', 'pug');
-app.set('views', path.join(__dirname, 'views'));
-
-// set public as static files folder
-app.use(express.static(path.join(__dirname, 'public')));
-
 // implementing CORS (cross-origin resource sharing)
 // CORS allows restricted resources on a web page to be accessed from another domain (allows API sharing)
 app.use(cors());
@@ -45,9 +38,6 @@ app.use(
         reportOnly: false,
     })
 );
-
-// data sanitization against NoSQL query injection
-app.use(mongoSanitize());
 
 // prevent XSS attack (cross-site scripting attack)
 app.use(xss());
