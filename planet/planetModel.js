@@ -13,7 +13,7 @@ const planetModel = (planetData) => {
         lakes
     };
 
-    return planet;
+    return planetData;
 };
 
 module.exports = planetModel;

@@ -8,6 +8,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const compression = require('compression');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 
 const planetController = require('./planet/planetController');
 
@@ -43,7 +44,7 @@ app.use(
 app.use(xss());
 
 // compress data from the client
-app.use(compression());
+//app.use(compression());
 
 // concise output colored by response status for development use
 if (process.env.NODE_ENV === 'development') {
@@ -58,12 +59,14 @@ const apiRoute = '/api/v1';
 const router = express.Router();
 
 router.route('/')
-    .get(
+    .post(
+        bodyParser.json(),
         planetController.getPlanetModel
     )
 
 router.route('/image')
-    .get(
+    .post(
+        bodyParser.json(),
         planetController.getPlanetImage
     )
 
