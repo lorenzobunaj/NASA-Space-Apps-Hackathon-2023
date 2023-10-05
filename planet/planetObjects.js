@@ -1,8 +1,8 @@
-const getElementColor = require('./../utils/getElementColor');
+const getObjectColor = require('../utils/getObjectColor');
 
 // athmosphere
 exports.athmosphereObject = (planetData) => {
-    const athmosphereColor = getElementColor(planetData);
+    const athmosphereColor = getObjectColor(planetData);
 
     const athmosphere = {
         color: athmosphereColor
@@ -13,7 +13,7 @@ exports.athmosphereObject = (planetData) => {
 
 // surface
 exports.surfaceObject = (planetData) => {
-    const surfaceColor = getElementColor(planetData);
+    const surfaceColor = getObjectColor(planetData);
 
     const surface = {
         color: surfaceColor
@@ -24,7 +24,7 @@ exports.surfaceObject = (planetData) => {
 
 // vegetation
 exports.vegetationObject = (planetData) => {
-    const vegetationColor = getElementColor(planetData);
+    const vegetationColor = getObjectColor(planetData);
 
     const vegetation = {
         color: vegetationColor
@@ -35,7 +35,7 @@ exports.vegetationObject = (planetData) => {
 
 // lakes
 exports.lakesObject = (planetData) => {
-    const lakesColor = getElementColor(planetData);
+    const lakesColor = getObjectColor(planetData);
 
     const lakes = {
         color: lakesColor

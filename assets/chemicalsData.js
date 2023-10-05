@@ -1,4 +1,4 @@
-const elements = {
+const chemicals = {
     hydrogen: {},
     hydrogenCyanide: {},
     hydrogenSulfide: {},
@@ -25,4 +25,4 @@ const elements = {
     water: {}
 };
 
-module.exports = elements;
+module.exports = chemicals;
