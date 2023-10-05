@@ -1,16 +1,27 @@
-const chemicals = {
-    hydrogen: {},
-    hydrogenCyanide: {},
-    hydrogenSulfide: {},
-    helium: {},
-    methane: {},
-    waterVapour: {},
-    ammonia: {},
-    carbonDioxide: {},
-    molecularNitrogen: {},
-    H2S: {},
-    oxygen2: {},
-    oxygen3: {},
+const chemicals = {	
+    athmosphere: {
+        hydrogenCyanide: {
+            color: "0, 141,203"
+        },
+        hydrogenSulfide: {
+            color: "250,238,102"
+        },
+        methane: {
+            color: "0,141,20"
+        },
+        waterVapour: {
+            color: "41,118,187"
+        },
+        ammonia: {
+            color: "175, 238, 238"
+        },
+        carbonDioxide: {
+            color: "0,151,93"
+        },
+        oxygen: {
+            color: "124,182,236	"
+        }
+    },
     ironOxides: {},
     sulfatesSulfides: {},
     titaniumDioxide: {},

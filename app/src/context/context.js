@@ -1,11 +1,13 @@
 import { useState, useContext, createContext } from "react";
 import { useFetch } from "../hooks/useFetch";
+import { athmosphereData  } from "../assets/athmosphereData";
 
 const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
     const [planetQuery, setPlanetQuery] = useState({
-        name: window.localStorage.getItem('planetName') || '11 Com b'
+        name: window.localStorage.getItem('planetName') || '11 Com b',
+        athmosphere: athmosphereData
     });
 
     // const [isSubmit, setIsSubmit] = useState(false);
