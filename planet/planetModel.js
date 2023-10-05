@@ -1,4 +1,4 @@
-const planetObjects = require('./planetObjects');
+const planetObjects = require('../objects/planetObjects');
 
 const planetModel = (planetData) => {
     const athmosphere = planetObjects.athmosphereObject(planetData);

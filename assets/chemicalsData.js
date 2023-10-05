@@ -1,27 +1,34 @@
 const chemicals = {	
-    athmosphere: {
-        hydrogenCyanide: {
-            color: "0, 141,203"
+    athmosphere: [
+        {
+            name: "hydrogenCyanide",
+            color: "0,141,203"
         },
-        hydrogenSulfide: {
+        {
+            name: "hydrogenSulfide",
             color: "250,238,102"
         },
-        methane: {
+        {
+            name: "methane",
             color: "0,141,20"
         },
-        waterVapour: {
+        {
+            name: "waterVapour",
             color: "41,118,187"
         },
-        ammonia: {
-            color: "175, 238, 238"
+        {
+            name: "ammonia",
+            color: "175,238,238"
         },
-        carbonDioxide: {
+        {
+            name: "carbonDioxide",
             color: "0,151,93"
         },
-        oxygen: {
-            color: "124,182,236	"
+        {
+            name: "oxygen",
+            color: "124,182,236"
         }
-    },
+    ],
     ironOxides: {},
     sulfatesSulfides: {},
     titaniumDioxide: {},

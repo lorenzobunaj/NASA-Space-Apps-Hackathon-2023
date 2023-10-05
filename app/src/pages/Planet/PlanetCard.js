@@ -21,7 +21,8 @@ const PlanetCard = () => {
 
     return (
         <>
-            <h1>Planet: {planetData.data.name/*.data.name.replace(/'/g, '')*/}</h1>
+            <h1>Planet: {planetData.data.name}</h1>
+            <h1>Atmosphere Color: {planetData.data.athmosphere.color}</h1>
         </>
     )
 };
