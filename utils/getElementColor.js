@@ -1,7 +1,7 @@
-const getElementColor = (planetData) => {
-    const elementColor = '0,0,0,1';
+const getObjectColor = (planetData) => {
+    const objectColor = '0,0,0,1';
 
-    return elementColor;
+    return objectColor;
 };
 
-module.exports = getElementColor;
+module.exports = getObjectColor;

@@ -1,10 +1,10 @@
-const getElementColor = require('./../utils/getElementColor');
+const planetObjects = require('./planetObjects');
 
 const planetModel = (planetData) => {
-    const athmosphere = athmosphereModel(planetData);
-    const surface = surfaceModel(planetData);
-    const vegetation = vegetationModel(planetData);
-    const lakes = lakesModel(planetData);
+    const athmosphere = planetObjects.athmosphereObject(planetData);
+    const surface = planetObjects.surfaceObject(planetData);
+    const vegetation = planetObjects.vegetationObject(planetData);
+    const lakes = planetObjects.lakesObject(planetData);
 
     const planet = {
         athmosphere,
@@ -14,50 +14,6 @@ const planetModel = (planetData) => {
     };
 
     return planet;
-};
-
-// athmosphere function
-const athmosphereModel = (planetData) => {
-    const athmosphereColor = getElementColor(planetData);
-
-    const athmosphere = {
-        color: athmosphereColor
-    }
-
-    return athmosphere;
-};
-
-// surface function
-const surfaceModel = (planetData) => {
-    const surfaceColor = getElementColor(planetData);
-
-    const surface = {
-        color: surfaceColor
-    }
-
-    return surface;
-};
-
-// vegetation function
-const vegetationModel = (planetData) => {
-    const vegetationColor = getElementColor(planetData);
-
-    const vegetation = {
-        color: vegetationColor
-    }
-
-    return vegetation;
-};
-
-// lakes function
-const lakesModel = (planetData) => {
-    const lakesColor = getElementColor(planetData);
-
-    const lakes = {
-        color: lakesColor
-    }
-
-    return lakes;
 };
 
 module.exports = planetModel;
