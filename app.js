@@ -9,7 +9,7 @@ const xss = require('xss-clean');
 const compression = require('compression');
 const cors = require('cors');
 
-const planetController = require('./planetController');
+const planetController = require('./planet/planetController');
 
 // initialize the app
 const app = express();
@@ -57,11 +57,16 @@ const apiRoute = '/api/v1';
 
 const router = express.Router();
 
-router.route('/:id')
+router.route('/')
     .get(
-        planetController.getPlanet
+        planetController.getPlanetModel
     )
 
-app.use(`${apiRoute}/planets`, router);
+router.route('/image')
+    .get(
+        planetController.getPlanetImage
+    )
+
+app.use(`${apiRoute}/planets/:id`, router);
 
 module.exports = app;
