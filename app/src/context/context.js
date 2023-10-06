@@ -1,7 +1,7 @@
 import { useState, useContext, createContext } from "react";
 import { useFetch } from "../hooks/useFetch";
-import { athmosphereData  } from "../assets/athmosphereData";
-import { surfaceData } from "../assets/surfaceData";
+import { athmosphereData  } from "../data/athmosphereData";
+import { surfaceData } from "../data/surfaceData";
 
 const AppContext = createContext();
 

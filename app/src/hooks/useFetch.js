@@ -10,7 +10,7 @@ const useFetch = (planetQuery, currentUrl, setCurrentUrl) => {
 
     useEffect(() => {
         (fetchData)(planetQuery, setIsLoading, setIsError, setPlanetData, currentUrl, setCurrentUrl);
-    }, [planetQuery]);
+    }, [planetQuery, currentUrl, setCurrentUrl]);
 
     console.log(planetData);
 
