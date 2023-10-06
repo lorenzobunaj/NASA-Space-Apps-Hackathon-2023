@@ -1,21 +1,21 @@
 import { useState, useEffect } from "react";
-import { useDidMountEffect } from "./useDidMountEffect";
+
 const url = 'http://localhost:5000/api/v1/planets'
 //const url = "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?";
 
-const useFetch = (planetQuery) => {
+const useFetch = (planetQuery, currentUrl, setCurrentUrl) => {
     const [isLoading, setIsLoading] = useState(true);
     const [isError, setIsError] = useState(false);
     const [planetData, setPlanetData] = useState({});
 
     useEffect(() => {
-        (fetchData)(planetQuery, setIsLoading, setIsError, setPlanetData);
+        (fetchData)(planetQuery, setIsLoading, setIsError, setPlanetData, currentUrl, setCurrentUrl);
     }, [planetQuery]);
 
     return { isLoading, isError, planetData };
 }
 
-const fetchData = async (planetQuery, setIsLoading, setIsError, setPlanetData) => {
+const fetchData = async (planetQuery, setIsLoading, setIsError, setPlanetData, currentUrl, setCurrentUrl) => {
     setIsError(false);
     setIsLoading(true);
     try {
@@ -35,6 +35,12 @@ const fetchData = async (planetQuery, setIsLoading, setIsError, setPlanetData) =
         const data = await response.json();
 
         setPlanetData(data);
+
+        if (currentUrl !== window.location.href) {
+            setCurrentUrl(window.location.href);
+            window.localStorage.setItem('planetAthmosphereColor', data.data.athmosphere.color);
+            window.localStorage.setItem('planetSurfaceColor', data.data.surface.color);
+        };
     } catch (err) {
         console.log(err);
         setIsError(true);

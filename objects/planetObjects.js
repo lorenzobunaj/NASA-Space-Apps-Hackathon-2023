@@ -4,22 +4,42 @@ const getObjectColor = require('./getObjectColor');
 
 // athmosphere
 exports.athmosphereObject = (planetData) => {
-    const athmosphereColor = getObjectColor(planetData.athmosphere, chemicals.athmosphere);
+    let athmosphereChemicals = [
+        "hydrogenCyanide", "hydrogenSulfide", "methane", "waterVapour", "ammonia", "carbonDioxide", "oxygen", "sulfuricAcid"
+    ];
+    athmosphereChemicals = athmosphereChemicals.map(chem => {
+        return {
+            name: chem,
+            color: chemicals.find(e => e.name === chem).color
+        };
+    });
+
+    const athmosphereColor = getObjectColor(planetData.athmosphere.chemicals, athmosphereChemicals);
 
     const athmosphere = {
         color: athmosphereColor
-    }
+    };
 
     return athmosphere;
 };
 
 // surface
 exports.surfaceObject = (planetData) => {
-    const surfaceColor = getObjectColor(planetData.surface, chemicals.surface);
+    let surfaceChemicals = [
+        "ironOxides", "sulfatesSulfides", "graphite", "carbonates", "calciumSulphate", "sodiumChloride", "oxygen"
+    ];
+    surfaceChemicals = surfaceChemicals.map(chem => {
+        return {
+            name: chem,
+            color: chemicals.find(e => e.name === chem).color
+        };
+    });
+
+    const surfaceColor = getObjectColor(planetData.surface.chemicals, surfaceChemicals);
 
     const surface = {
         color: surfaceColor
-    }
+    };
 
     return surface;
 };
@@ -51,15 +71,23 @@ exports.vegetationObject = (planetData) => {
 
 // lakes
 exports.lakesObject = (planetData) => {
-    /*
-    const lakesColor = getObjectColor(planetData);
+    let lakesChemicals = [
+        "waterVapour", "methane", "ammonia", "hydrogenSulfide", "hydrogenCyanide", "sulfuricAcid"
+    ];
+
+    lakesChemicals = lakesChemicals.map(chem => {
+        return {
+            name: chem,
+            color: chemicals.find(e => e.name === chem).color
+        };
+    });
+
+    
+    const lakesColor = getObjectColor([...planetData.athmosphere.chemicals,...planetData.surface.chemicals], lakesChemicals);
 
     const lakes = {
         color: lakesColor
     }
 
     return lakes;
-    */
-
-    return 1;
 };

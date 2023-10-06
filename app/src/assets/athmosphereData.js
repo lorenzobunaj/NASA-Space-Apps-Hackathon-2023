@@ -26,6 +26,10 @@ const athmosphereData = [
     {
         name: "oxygen",
         percentage: "0"
+    },
+    {
+        name: "sulfuricAcid",
+        percentage: "0"
     }
 ];
 

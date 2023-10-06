@@ -6,15 +6,23 @@ import { surfaceData } from "../assets/surfaceData";
 const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
+    const [currentUrl, setCurrentUrl] = useState(window.location.href);
+
     const [planetQuery, setPlanetQuery] = useState({
         name: window.localStorage.getItem('planetName') || 'Com 11 b',
-        athmosphere: athmosphereData,
-        surface: surfaceData,
+        athmosphere: {
+            color: window.localStorage.getItem('planetAthmosphereColor') || [0,0,0],
+            chemicals: athmosphereData
+        },
+        surface: {
+            color: window.localStorage.getItem('planetSurfaceColor') || [0,0,0],
+            chemicals: surfaceData
+        },
         star: window.localStorage.getItem('planetStar') || 'sunLike'
     });
 
     // const [isSubmit, setIsSubmit] = useState(false);
-    const { isLoading, isError, planetData } = useFetch(planetQuery);
+    const { isLoading, isError, planetData } = useFetch(planetQuery, currentUrl, setCurrentUrl);
 
     const searchPlanet = (input) => {
         setPlanetQuery(input);
@@ -27,7 +35,9 @@ const AppProvider = ({ children }) => {
                 searchPlanet,
                 isLoading,
                 isError,
-                planetData
+                planetData,
+                currentUrl,
+                setCurrentUrl
             }
         }>
             {children}

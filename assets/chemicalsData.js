@@ -1,5 +1,4 @@
-const chemicals = {	
-    athmosphere: [
+const chemicals = [
         {
             name: "hydrogenCyanide",
             color: "0,141,203"
@@ -27,9 +26,11 @@ const chemicals = {
         {
             name: "oxygen",
             color: "124,182,236"
-        }
-    ],
-    surface: [
+        },
+        {
+            name: "sulfuricAcid",
+            color: "220,220,220"
+        },
         {
             name: "ironOxides",
             color: "155,47,28"
@@ -58,7 +59,6 @@ const chemicals = {
             name: "oxygen",
             color: "124,182,236"
         }
-    ]
-};
+];
 
 module.exports = chemicals;

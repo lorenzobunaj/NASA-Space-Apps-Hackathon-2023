@@ -10,19 +10,22 @@ const SurfaceInputsList = (data) => {
             Surface:
             <div>
                 {
-                    planetQuery.surface.map((chem, i) => {
+                    planetQuery.surface.chemicals.map((chem, i) => {
                         return (
                             <input
                                 key={i}
                                 id={chem.name}
                                 placeholder={chem.name}
-                                value={input.surface[i].percentage}
+                                value={input.surface.chemicals[i].percentage}
                                 onChange={(e) => {
-                                    const newSurface = input.surface;
-                                    newSurface[i].percentage = e.target.value;
+                                    const newChemicals = input.surface.chemicals;
+                                    newChemicals[i].percentage = e.target.value;
                                     setInput({
                                         ...input,
-                                        surface: newSurface
+                                        surface: {
+                                            ...input.surface,
+                                            chemicals: newChemicals
+                                        }
                                     })
                                 }}
                             />

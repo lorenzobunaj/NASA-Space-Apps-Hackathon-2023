@@ -10,19 +10,22 @@ const AthmosphereInputsList = (data) => {
             Athmosphere:
             <div>
                 {
-                    planetQuery.athmosphere.map((chem, i) => {
+                    planetQuery.athmosphere.chemicals.map((chem, i) => {
                         return (
                             <input
                                 key={i}
                                 id={chem.name}
                                 placeholder={chem.name}
-                                value={input.athmosphere[i].percentage}
+                                value={input.athmosphere.chemicals[i].percentage}
                                 onChange={(e) => {
-                                    const newAthmosphere = input.athmosphere;
-                                    newAthmosphere[i].percentage = e.target.value;
+                                    const newChemicals = input.athmosphere.chemicals;
+                                    newChemicals[i].percentage = e.target.value;
                                     setInput({
                                         ...input,
-                                        athmosphere: newAthmosphere
+                                        athmosphere: {
+                                            ...input.athmosphere,
+                                            chemicals: newChemicals
+                                        }
                                     })
                                 }}
                             />

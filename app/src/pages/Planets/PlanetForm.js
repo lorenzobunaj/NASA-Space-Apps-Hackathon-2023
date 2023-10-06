@@ -7,7 +7,7 @@ import { AthmosphereInputsList } from './InputsLists/AthmosphereInputsList';
 import { SurfaceInputsList } from './InputsLists/SurfaceInputsList';
 
 const PlanetForm = () => {
-    const { planetQuery, searchPlanet } = useAppContext();
+    const { planetQuery, searchPlanet, setCurrentUrl } = useAppContext();
     const [input, setInput] = useState(planetQuery);
     const navigate = useNavigate();
 
@@ -19,7 +19,9 @@ const PlanetForm = () => {
         searchPlanet(input);
 
         window.localStorage.setItem('planetName', input.name);
+        window.localStorage.setItem('planetStar', input.star);
 
+        setCurrentUrl(window.location.href);
         navigate(`/planets/${slugify(input.name.toLowerCase(), { delimiter: '-', })}`);
     };
 
@@ -35,7 +37,7 @@ const PlanetForm = () => {
                             Render Planet
                         </button>
                     </div>
-                    <br/>
+                    <br />
                     Name:
                     <div>
                         <input
@@ -50,11 +52,11 @@ const PlanetForm = () => {
                             }}
                         />
                     </div>
-                    <br/>
+                    <br />
                     <AthmosphereInputsList input={input} setInput={setInput} />
-                    <br/>
+                    <br />
                     <SurfaceInputsList input={input} setInput={setInput} />
-                    <br/>
+                    <br />
                     Star:
                     <div>
                         <input
@@ -67,7 +69,7 @@ const PlanetForm = () => {
                                     star: e.target.value
                                 })
                             }}
-                        />   
+                        />
                     </div>
                 </div>
             </form>

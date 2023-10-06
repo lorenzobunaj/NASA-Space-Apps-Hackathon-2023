@@ -22,7 +22,8 @@ const PlanetCard = () => {
     return (
         <>
             <h1>Planet: {planetData.data.name}</h1>
-            <h1>Atmosphere Color: 
+            <ul>
+            <li><h2>Atmosphere Color: 
                 <p style={{color: `rgb(
                     ${planetData.data.athmosphere.color[0]},
                     ${planetData.data.athmosphere.color[1]},
@@ -30,8 +31,8 @@ const PlanetCard = () => {
                 )`}}>
                     color
                 </p>
-            </h1>
-            <h1>Surface Color: 
+            </h2></li>
+            <li><h2>Surface Color: 
                 <p style={{color: `rgb(
                     ${planetData.data.surface.color[0]},
                     ${planetData.data.surface.color[1]},
@@ -39,8 +40,8 @@ const PlanetCard = () => {
                     )`}}>
                     color
                 </p>
-            </h1>
-            <h1>Vegetation Color: 
+            </h2></li>
+            <li><h2>Vegetation Color: 
                 <p style={{color: `rgb(
                     ${planetData.data.vegetation.color[0]},
                     ${planetData.data.vegetation.color[1]},
@@ -48,7 +49,17 @@ const PlanetCard = () => {
                 )`}}>
                     color
                 </p>
-            </h1>
+            </h2></li>
+            <li><h2>Lakes Color: 
+                <p style={{color: `rgb(
+                    ${planetData.data.lakes.color[0]},
+                    ${planetData.data.lakes.color[1]},
+                    ${planetData.data.lakes.color[2]}
+                )`}}>
+                    color
+                </p>
+            </h2></li>
+            </ul>
         </>
     )
 };
