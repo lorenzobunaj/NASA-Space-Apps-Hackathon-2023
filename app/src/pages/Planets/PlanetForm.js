@@ -2,9 +2,9 @@ import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import slugify from 'react-slugify';
-import { FaSearch } from "react-icons/fa";
 import { useAppContext } from '../../context/context';
-import { InputsList } from './InputsList'
+import { AthmosphereInputsList } from './InputsLists/AthmosphereInputsList';
+import { SurfaceInputsList } from './InputsLists/SurfaceInputsList';
 
 const PlanetForm = () => {
     const { planetQuery, searchPlanet } = useAppContext();
@@ -30,10 +30,45 @@ const PlanetForm = () => {
                     <h4>Search by Name:</h4>
                 </label>
                 <div>
-                    <button type="submit">
-                        <FaSearch />
-                    </button>
-                    <InputsList input={input} setInput={setInput}/>
+                    <div>
+                        <button type="submit">
+                            Render Planet
+                        </button>
+                    </div>
+                    <br/>
+                    Name:
+                    <div>
+                        <input
+                            id="planetName"
+                            placeholder={planetQuery.name}
+                            value={input.name}
+                            onChange={(e) => {
+                                setInput({
+                                    ...input,
+                                    name: e.target.value
+                                })
+                            }}
+                        />
+                    </div>
+                    <br/>
+                    <AthmosphereInputsList input={input} setInput={setInput} />
+                    <br/>
+                    <SurfaceInputsList input={input} setInput={setInput} />
+                    <br/>
+                    Star:
+                    <div>
+                        <input
+                            id="planetStar"
+                            placeholder={planetQuery.star}
+                            value={input.star}
+                            onChange={(e) => {
+                                setInput({
+                                    ...input,
+                                    star: e.target.value
+                                })
+                            }}
+                        />   
+                    </div>
                 </div>
             </form>
         </>

@@ -1,9 +1,9 @@
 const chemicals = require('../assets/chemicalsData');
+const star = require('../assets/starData');
 const getObjectColor = require('./getObjectColor');
 
 // athmosphere
 exports.athmosphereObject = (planetData) => {
-
     const athmosphereColor = getObjectColor(planetData.athmosphere, chemicals.athmosphere);
 
     const athmosphere = {
@@ -15,30 +15,38 @@ exports.athmosphereObject = (planetData) => {
 
 // surface
 exports.surfaceObject = (planetData) => {
-    /*const surfaceColor = getObjectColor(planetData);
+    const surfaceColor = getObjectColor(planetData.surface, chemicals.surface);
 
     const surface = {
         color: surfaceColor
     }
 
     return surface;
-    */
-    return 1
 };
 
 // vegetation
 exports.vegetationObject = (planetData) => {
-    /*
-    const vegetationColor = getObjectColor(planetData);
+    const planetDataVegetation = [
+        {
+            name: "star",
+            type: planetData.star
+        }
+    ];
+
+    const vegetationColors = [
+        {
+            name: "star",
+            color: star.find(e => e.name === planetDataVegetation.find(e => e.name === "star").type).vegetation.color
+        }
+    ];
+    
+    const vegetationColor = getObjectColor(planetDataVegetation, vegetationColors);
 
     const vegetation = {
         color: vegetationColor
     }
 
     return vegetation
-    */
-
-    return 1;
 };
 
 // lakes

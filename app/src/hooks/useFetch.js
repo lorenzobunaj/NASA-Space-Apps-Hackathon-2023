@@ -36,7 +36,7 @@ const fetchData = async (planetQuery, setIsLoading, setIsError, setPlanetData) =
 
         setPlanetData(data);
     } catch (err) {
-        //console.log(err);
+        console.log(err);
         setIsError(true);
     }
     setIsLoading(false);

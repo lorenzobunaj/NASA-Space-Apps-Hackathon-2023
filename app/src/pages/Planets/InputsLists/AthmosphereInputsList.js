@@ -1,30 +1,20 @@
 import React from 'react';
-import { useAppContext } from '../../context/context';
+import { useAppContext } from '../../../context/context';
 
-const InputsList = (data) => {
+const AthmosphereInputsList = (data) => {
     const { planetQuery } = useAppContext();
     const { input, setInput } = data;
 
     return (
         <div>
-            <input 
-                id="planetName" 
-                placeholder={planetQuery.name}
-                value={input.name}
-                onChange={(e) => {
-                    setInput({
-                        ...setInput,
-                        name: e.target.value
-                    })
-                }}
-            />
+            Athmosphere:
             <div>
                 {
                     planetQuery.athmosphere.map((chem, i) => {
                         return (
-                            <input 
+                            <input
                                 key={i}
-                                id={chem.name} 
+                                id={chem.name}
                                 placeholder={chem.name}
                                 value={input.athmosphere[i].percentage}
                                 onChange={(e) => {
@@ -44,4 +34,4 @@ const InputsList = (data) => {
     )
 };
 
-export { InputsList };
+export { AthmosphereInputsList };
