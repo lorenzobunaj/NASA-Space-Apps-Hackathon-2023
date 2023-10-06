@@ -14,7 +14,9 @@ const PlanetForm = () => {
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         setInput({
+            ...input,
             name: document.querySelector('#planetName').value
+
         });
         searchPlanet(input);
 

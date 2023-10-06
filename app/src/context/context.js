@@ -11,11 +11,11 @@ const AppProvider = ({ children }) => {
     const [planetQuery, setPlanetQuery] = useState({
         name: window.localStorage.getItem('planetName') || 'Com 11 b',
         athmosphere: {
-            color: window.localStorage.getItem('planetAthmosphereColor') || [0,0,0],
+            color: window.localStorage.getItem('planetAthmosphereColor').split(',') || [0,0,0],
             chemicals: athmosphereData
         },
         surface: {
-            color: window.localStorage.getItem('planetSurfaceColor') || [0,0,0],
+            color: window.localStorage.getItem('planetSurfaceColor').split(',') || [0,0,0],
             chemicals: surfaceData
         },
         star: window.localStorage.getItem('planetStar') || 'sunLike'
