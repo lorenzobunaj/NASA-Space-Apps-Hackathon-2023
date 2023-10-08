@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const url = 'https://planet-render-production.up.railway.app/api/v1'
+const url = 'https://localhost:5000/api/v1'
 //const url = "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?";
 
 const useFetch = (planetQuery, currentUrl, setCurrentUrl) => {
@@ -33,6 +33,7 @@ const fetchData = async (planetQuery, setIsLoading, setIsError, setPlanetData, c
             )
         });
         const data = await response.json();
+        console.log(data);
 
         setPlanetData(() => {
             if (currentUrl !== window.location.href) {
