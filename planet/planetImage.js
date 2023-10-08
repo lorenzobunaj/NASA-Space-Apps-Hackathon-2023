@@ -4,6 +4,7 @@ const planetImage = async (planetData) => {
     const API_KEY = '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';
     const openaiUrl = 'https://api.openai.com/v1/images/generations';
 
+    const hi = 1;
     const headers = {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${API_KEY}`,
