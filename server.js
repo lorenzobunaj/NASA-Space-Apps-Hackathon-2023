@@ -1,5 +1,6 @@
 const dotenv = require('dotenv');
 const app = require('./app');
+const { Configuration, OpenAIApi } = require("openai");
 
 // handle uncaught exception
 process.on('uncaughtException', err => {

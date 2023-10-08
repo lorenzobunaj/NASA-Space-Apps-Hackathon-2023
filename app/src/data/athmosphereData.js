@@ -1,35 +1,39 @@
 const athmosphereData = [
     {
+        name: "ammonia",
+        percentage: "50"
+    },
+    {
         name: "hydrogenCyanide",
-        percentage: "0"
+        percentage: "50"
     },
     {
         name: "hydrogenSulfide",
-        percentage: "0"
+        percentage: "50"
     },
     {
         name: "methane",
-        percentage: "0"
+        percentage: "50"
     },
     {
         name: "waterVapour",
-        percentage: "0"
+        percentage: "50"
     },
     {
         name: "ammonia",
-        percentage: "0"
+        percentage: "50"
     },
     {
         name: "carbonDioxide",
-        percentage: "0"
+        percentage: "50"
     },
     {
         name: "oxygen",
-        percentage: "0"
+        percentage: "50"
     },
     {
         name: "sulfuricAcid",
-        percentage: "0"
+        percentage: "50"
     }
 ];
 

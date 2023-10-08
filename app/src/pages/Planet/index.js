@@ -2,13 +2,29 @@ import styled from "styled-components";
 import React, { Suspense } from 'react';
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { PlanetCard } from "./PlanetCard";
 import PlanetModel from './PlanetModel';
 import { useAppContext } from '../../context/context';
 
 const Planet = () => {
-    const { setCurrentUrl } = useAppContext();
+    const location = useLocation();
+    const { setCurrentUrl, isLoading, isError, planetData } = useAppContext();
+
+    if (isError) {
+        return (
+            <>
+                <h1>Error</h1>
+            </>
+        )
+    }
+    if (isLoading) {
+        return (
+            <>
+                <h1>Loading...</h1>
+            </>
+        )
+    }
 
     return (
         <Wrapper>
@@ -22,13 +38,19 @@ const Planet = () => {
                     Go to Planets Page
                 </Link>
             </div>
-            <PlanetCard />
+            <div>
+                <Link to={`${location.pathname}/image`} onClick={() => setCurrentUrl(`${location.pathname}/image`)}>
+                    Go to Image Page
+                </Link>
+            </div>
+
+            <PlanetCard planetData={planetData}/>
             <Canvas className='planetModel'>
                 <OrbitControls enableZoom={false} />
-                <ambientLight intensity={0.5} />
-                <directionalLight position={[-2, 5, 2]} intensity={1} />
+                <ambientLight intensity={1} />
+                <directionalLight position={[0,3, 3]} intensity={2} />
                 <Suspense fallback={null}>
-                    <PlanetModel />
+                    <PlanetModel planetData={planetData}/>
                 </Suspense>
             </Canvas>
         </Wrapper>

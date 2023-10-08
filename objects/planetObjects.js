@@ -1,17 +1,21 @@
-const chemicals = require('../assets/chemicalsData');
-const star = require('../assets/starData');
+const chemicals = require('../data/chemicalsData');
+const star = require('../data/starData');
 const getObjectColor = require('./getObjectColor');
 
 // athmosphere
 exports.athmosphereObject = (planetData) => {
-    let athmosphereChemicals = [
+    /*let athmosphereChemicals = [
         "hydrogenCyanide", "hydrogenSulfide", "methane", "waterVapour", "ammonia", "carbonDioxide", "oxygen", "sulfuricAcid"
-    ];
-    athmosphereChemicals = athmosphereChemicals.map(chem => {
-        return {
-            name: chem,
-            color: chemicals.find(e => e.name === chem).color
-        };
+    ];*/
+
+    let athmosphereChemicals = [];
+    chemicals.map(chem => {
+        if (chem.athmosphere !== 'NaN') {
+            athmosphereChemicals.push({
+                name: chem.name,
+                color: chem.athmosphere.color//chemicals.find(e => e.name === chem).color
+            });
+        }
     });
 
     const athmosphereColor = getObjectColor(planetData.athmosphere.chemicals, athmosphereChemicals);
@@ -25,14 +29,18 @@ exports.athmosphereObject = (planetData) => {
 
 // surface
 exports.surfaceObject = (planetData) => {
-    let surfaceChemicals = [
+    /*let surfaceChemicals = [
         "ironOxides", "sulfatesSulfides", "graphite", "carbonates", "calciumSulphate", "sodiumChloride", "oxygen"
-    ];
-    surfaceChemicals = surfaceChemicals.map(chem => {
-        return {
-            name: chem,
-            color: chemicals.find(e => e.name === chem).color
-        };
+    ];*/
+
+    let surfaceChemicals = [];
+    chemicals.map(chem => {
+        if (chem.surface !== 'NaN') {
+            surfaceChemicals.push({
+                name: chem.name,
+                color: chem.surface.color
+            });
+        }
     });
 
     const surfaceColor = getObjectColor(planetData.surface.chemicals, surfaceChemicals);
@@ -46,7 +54,18 @@ exports.surfaceObject = (planetData) => {
 
 // vegetation
 exports.vegetationObject = (planetData) => {
+    let vegetationChemicals = [];
+    chemicals.map(chem => {
+        if (chem.vegetation !== 'NaN') {
+            vegetationChemicals.push({
+                name: chem.name,
+                color: chem.vegetation.color
+            });
+        }
+    });
+
     const planetDataVegetation = [
+        ...planetData.vegetation.chemicals,
         {
             name: "star",
             type: planetData.star
@@ -54,12 +73,13 @@ exports.vegetationObject = (planetData) => {
     ];
 
     const vegetationColors = [
+        ...vegetationChemicals,
         {
             name: "star",
             color: star.find(e => e.name === planetDataVegetation.find(e => e.name === "star").type).vegetation.color
         }
     ];
-    
+
     const vegetationColor = getObjectColor(planetDataVegetation, vegetationColors);
 
     const vegetation = {
@@ -71,19 +91,22 @@ exports.vegetationObject = (planetData) => {
 
 // lakes
 exports.lakesObject = (planetData) => {
-    let lakesChemicals = [
+    let lakesRelevantChemicals = [
         "waterVapour", "methane", "ammonia", "hydrogenSulfide", "hydrogenCyanide", "sulfuricAcid"
     ];
 
-    lakesChemicals = lakesChemicals.map(chem => {
-        return {
-            name: chem,
-            color: chemicals.find(e => e.name === chem).color
-        };
+    let lakesChemicals = [];
+    chemicals.map(chem => {
+        if (lakesRelevantChemicals.includes(chem.name)) {
+            lakesChemicals.push({
+                name: chem.name,
+                color: chemicals.find(e => e.name === chem.name).color
+            });
+        }
     });
 
-    
-    const lakesColor = getObjectColor([...planetData.athmosphere.chemicals,...planetData.surface.chemicals], lakesChemicals);
+
+    const lakesColor = getObjectColor([...planetData.athmosphere.chemicals, ...planetData.surface.chemicals], lakesChemicals);
 
     const lakes = {
         color: lakesColor

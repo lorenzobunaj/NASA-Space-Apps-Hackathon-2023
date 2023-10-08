@@ -1,17 +1,18 @@
 const getObjectColor = (objectData, objectColors) => {
     const objectRgbas = objectColors;
     objectRgbas.map((e, i) => {
-        const rgbColor = e.color.split(',');
-        e.color = `${rgbColor[0]},${rgbColor[1]},${rgbColor[2]},${objectData[i].percentage ? objectData[i].percentage / 100 : 'noPerc'}`;
+        const rgbColor = e.color ? e.color.split(',') : ['128','128','128'];
+        e.color = `${rgbColor[0]},${rgbColor[1]},${rgbColor[2]},${
+            objectData.find(d => d.name === e.name).percentage ?  
+                objectData.find(d => d.name === e.name).percentage / 100 : 'noPerc'}`;
+        
     });
 
     let objectColor = [
-        getColorComponent(objectRgbas, 0), 
-        getColorComponent(objectRgbas, 1), 
-        getColorComponent(objectRgbas, 2)
+        Math.round(getColorComponent(objectRgbas, 0)*100/objectRgbas.length)/100,
+        Math.round(getColorComponent(objectRgbas, 1)*100/objectRgbas.length)/100,
+        Math.round(getColorComponent(objectRgbas, 2)*100/objectRgbas.length)/100,
     ];
-
-    objectColor.map(e => e = Math.round(e*100)/objectRgbas.length);
 
     return objectColor;
 };

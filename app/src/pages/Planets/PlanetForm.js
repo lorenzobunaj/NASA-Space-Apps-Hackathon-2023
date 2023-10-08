@@ -5,6 +5,7 @@ import slugify from 'react-slugify';
 import { useAppContext } from '../../context/context';
 import { AthmosphereInputsList } from './InputsLists/AthmosphereInputsList';
 import { SurfaceInputsList } from './InputsLists/SurfaceInputsList';
+import { VegetationInputsList } from './InputsLists/VegetationInputsList';
 
 const PlanetForm = () => {
     const { planetQuery, searchPlanet, setCurrentUrl } = useAppContext();
@@ -58,6 +59,8 @@ const PlanetForm = () => {
                     <AthmosphereInputsList input={input} setInput={setInput} />
                     <br />
                     <SurfaceInputsList input={input} setInput={setInput} />
+                    <br />
+                    <VegetationInputsList input={input} setInput={setInput} />
                     <br />
                     Star:
                     <div>
