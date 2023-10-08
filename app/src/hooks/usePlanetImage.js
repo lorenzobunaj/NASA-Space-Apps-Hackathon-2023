@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const url = 'http://localhost:5000/api/v1/planets'
+const url = 'https://planet-render-production.up.railway.app/api/v1/'
 
 const usePlanetImage = (planetQuery, prompt) => {
     const [isLoadingImage, setIsLoadingImage] = useState(true);
@@ -19,7 +19,7 @@ const fetchData = async (planetQuery, prompt, setIsLoadingImage, setIsErrorImage
     setIsLoadingImage(true);
     try {
         const source = `${url}/'${planetQuery.name}'/image`;
-        
+
         // fetch the add api
         const response = await fetch(source, {
             method: "POST",

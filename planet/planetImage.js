@@ -1,7 +1,7 @@
 const planetImage = async (planetData) => {
     const prompt = planetData.prompt;
 
-    const API_KEY = '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';
+    const API_KEY = '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';
     const openaiUrl = 'https://api.openai.com/v1/images/generations';
       
     const headers = {
