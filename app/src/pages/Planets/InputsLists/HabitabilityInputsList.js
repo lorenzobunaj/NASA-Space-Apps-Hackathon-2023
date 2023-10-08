@@ -9,7 +9,7 @@ const HabitabilityInputsList = (data) => {
     const { input, setInput } = data;
 
     return (
-            <dim>
+            <>
                 {
                     planetQuery.habitability.factors.map((factor, i) => {
                         return (
@@ -34,7 +34,7 @@ const HabitabilityInputsList = (data) => {
                         )
                     })
                 }
-            </dim>
+            </>
     )
 };
 
