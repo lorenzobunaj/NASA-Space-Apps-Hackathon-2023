@@ -1,7 +1,7 @@
-const API_KEY = require('./key');
-
 const planetImage = async (planetData) => {
     const prompt = planetData.prompt;
+
+    const API_KEY=process.env.OPENAI_KEY
 
     const openaiUrl = 'https://api.openai.com/v1/images/generations';
 
