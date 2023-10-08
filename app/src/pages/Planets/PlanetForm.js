@@ -68,49 +68,49 @@ const PlanetForm = () => {
                         />
                     </div>
                     <br />
-                    <div class="dropdown">
-                        <button class="btn btn-dropdown dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div className="dropdown">
+                        <button className="btn btn-dropdown dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Show Athmosphere inputs
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <div class="link-list-wrapper">
-                            <ul class="link-list">
+                        <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <div className="link-list-wrapper">
+                            <ul className="link-list">
                                 <AthmosphereInputsList input={input} setInput={setInput} />
                             </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="dropdown">
-                        <button class="btn btn-dropdown dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div className="dropdown">
+                        <button className="btn btn-dropdown dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Show Surface inputs
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <div class="link-list-wrapper">
-                            <ul class="link-list">
+                        <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <div className="link-list-wrapper">
+                            <ul className="link-list">
                                 <SurfaceInputsList input={input} setInput={setInput} />
                             </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="dropdown">
-                        <button class="btn btn-dropdown dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div className="dropdown">
+                        <button className="btn btn-dropdown dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Show Vegetation inputs
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <div class="link-list-wrapper">
-                            <ul class="link-list">
+                        <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <div className="link-list-wrapper">
+                            <ul className="link-list">
                                 <VegetationInputsList input={input} setInput={setInput} />
                             </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="dropdown">
-                        <button class="btn btn-dropdown dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div className="dropdown">
+                        <button className="btn btn-dropdown dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Show Habitability inputs
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <div class="link-list-wrapper">
-                            <ul class="link-list">
+                        <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <div className="link-list-wrapper">
+                            <ul className="link-list">
                                 <HabitabilityInputsList input={input} setInput={setInput} />
                             </ul>
                             </div>
