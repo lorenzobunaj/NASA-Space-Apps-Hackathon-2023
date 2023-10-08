@@ -1,14 +1,14 @@
 const planetImage = async (planetData) => {
     const prompt = planetData.prompt;
 
-    const API_KEY = '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';
+    const API_KEY = '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';
     const openaiUrl = 'https://api.openai.com/v1/images/generations';
-      
+
     const headers = {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${API_KEY}`,
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${API_KEY}`,
     };
-      
+
     const data = {
         model: 'image-alpha-001',
         prompt,
@@ -16,7 +16,7 @@ const planetImage = async (planetData) => {
         size: '256x256',
         response_format: 'url',
     };
-    
+
     // fetch the add api
     const response = await fetch(openaiUrl, {
         method: "POST",
