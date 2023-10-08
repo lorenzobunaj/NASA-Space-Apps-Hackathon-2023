@@ -18,6 +18,7 @@ exports.athmosphereObject = (planetData) => {
         }
     });
 
+    console.log('here 3')
     const athmosphereColor = getObjectColor(planetData.athmosphere.chemicals, athmosphereChemicals);
 
     const athmosphere = {
@@ -43,6 +44,7 @@ exports.surfaceObject = (planetData) => {
         }
     });
 
+    console.log('here 2')
     const surfaceColor = getObjectColor(planetData.surface.chemicals, surfaceChemicals);
 
     const surface = {
@@ -65,7 +67,22 @@ exports.vegetationObject = (planetData) => {
     });
 
     const planetDataVegetation = [
-        ...planetData.vegetation.chemicals,
+        {
+            name: "copper",
+            percentage: planetData.surface.chemicals.find(e => e.name === 'copper').percentage
+        },
+        {
+            name: "sulfate",
+            percentage: planetData.surface.chemicals.find(e => e.name === 'sulfate').percentage
+        },
+        {
+            name: "waterVapour",
+            percentage: planetData.athmosphere.chemicals.find(e => e.name === "waterVapour").percentage
+        },
+        {
+            name: "oxygen",
+            percentage: planetData.athmosphere.chemicals.find(e => e.name === "oxygen").percentage
+        },
         {
             name: "star",
             type: planetData.star
@@ -80,6 +97,7 @@ exports.vegetationObject = (planetData) => {
         }
     ];
 
+    console.log('here 1')
     const vegetationColor = getObjectColor(planetDataVegetation, vegetationColors);
 
     const vegetation = {
@@ -98,14 +116,20 @@ exports.lakesObject = (planetData) => {
     let lakesChemicals = [];
     chemicals.map(chem => {
         if (lakesRelevantChemicals.includes(chem.name)) {
+            let chemColor = chemicals.find(e => e.name === chem.name).athmosphere !== 'NaN' ?
+            chemicals.find(e => e.name === chem.name).athmosphere.color :
+            chemicals.find(e => e.name === chem.name).surface !== 'NaN' ?
+                chemicals.find(e => e.name === chem.name).surface.color : 
+                chemicals.find(e => e.name === chem.name).vegetation.color;
+
             lakesChemicals.push({
                 name: chem.name,
-                color: chemicals.find(e => e.name === chem.name).color
+                color: chemColor
             });
         }
     });
 
-
+    console.log('here 0')
     const lakesColor = getObjectColor([...planetData.athmosphere.chemicals, ...planetData.surface.chemicals], lakesChemicals);
 
     const lakes = {
