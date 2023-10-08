@@ -6,6 +6,7 @@ import { useAppContext } from '../../context/context';
 import { AthmosphereInputsList } from './InputsLists/AthmosphereInputsList';
 import { SurfaceInputsList } from './InputsLists/SurfaceInputsList';
 import { VegetationInputsList } from './InputsLists/VegetationInputsList';
+import { HabitabilityInputsList } from './InputsLists/HabitabilityInputsList';
 
 const PlanetForm = () => {
     const { planetQuery, searchPlanet, setCurrentUrl } = useAppContext();
@@ -56,11 +57,54 @@ const PlanetForm = () => {
                         />
                     </div>
                     <br />
-                    <AthmosphereInputsList input={input} setInput={setInput} />
-                    <br />
-                    <SurfaceInputsList input={input} setInput={setInput} />
-                    <br />
-                    <VegetationInputsList input={input} setInput={setInput} />
+                    <div class="dropdown">
+                        <button class="btn btn-dropdown dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Show Athmosphere inputs
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <div class="link-list-wrapper">
+                            <ul class="link-list">
+                                <AthmosphereInputsList input={input} setInput={setInput} />
+                            </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-dropdown dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Show Surface inputs
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <div class="link-list-wrapper">
+                            <ul class="link-list">
+                                <SurfaceInputsList input={input} setInput={setInput} />
+                            </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-dropdown dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Show Vegetation inputs
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <div class="link-list-wrapper">
+                            <ul class="link-list">
+                                <VegetationInputsList input={input} setInput={setInput} />
+                            </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-dropdown dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Show Habitability inputs
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <div class="link-list-wrapper">
+                            <ul class="link-list">
+                                <HabitabilityInputsList input={input} setInput={setInput} />
+                            </ul>
+                            </div>
+                        </div>
+                    </div>
                     <br />
                     Star:
                     <div>

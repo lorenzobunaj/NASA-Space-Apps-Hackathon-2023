@@ -9,9 +9,9 @@ const usePlanetImage = (planetQuery, prompt) => {
 
     useEffect(() => {
         (fetchData)(planetQuery, prompt, setIsLoadingImage, setIsErrorImage, setPlanetImageUrl);
-    }, [prompt]);
+    }, [prompt, planetQuery]);
 
-    return { prompt, isLoadingImage, isErrorImage, planetImageUrl };
+    return { isLoadingImage, isErrorImage, planetImageUrl };
 }
 
 const fetchData = async (planetQuery, prompt, setIsLoadingImage, setIsErrorImage, setPlanetImageUrl) => {
@@ -19,6 +19,7 @@ const fetchData = async (planetQuery, prompt, setIsLoadingImage, setIsErrorImage
     setIsLoadingImage(true);
     try {
         const source = `${url}/'${planetQuery.name}'/image`;
+        
         // fetch the add api
         const response = await fetch(source, {
             method: "POST",
@@ -34,9 +35,10 @@ const fetchData = async (planetQuery, prompt, setIsLoadingImage, setIsErrorImage
                 response_format: 'url',
             })
         });
-        const data = await response.json();
 
+        const data = await response.json();
         console.log(data)
+
         setPlanetImageUrl(data.data.data)
 
     } catch (err) {

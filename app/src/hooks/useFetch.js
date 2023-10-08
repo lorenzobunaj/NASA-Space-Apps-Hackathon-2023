@@ -12,7 +12,6 @@ const useFetch = (planetQuery, currentUrl, setCurrentUrl) => {
         (fetchData)(planetQuery, setIsLoading, setIsError, setPlanetData, currentUrl, setCurrentUrl);
     }, [planetQuery, currentUrl, setCurrentUrl]);
 
-    console.log(planetData);
 
     return { isLoading, isError, planetData };
 }

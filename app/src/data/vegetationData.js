@@ -6,7 +6,8 @@ const vegetationData = [
     {
         name: "oxygen",
         percentage: "50"
-    },
+    }
+    /*,
     {
         name: "sulfate",
         percentage: "50"
@@ -14,7 +15,7 @@ const vegetationData = [
     {
         name: "waterVapour",
         percentage: "50"
-    }
+    }*/
 ];
 
 export { vegetationData };

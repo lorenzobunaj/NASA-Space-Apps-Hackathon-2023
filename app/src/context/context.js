@@ -4,6 +4,7 @@ import { usePlanetImage } from "../hooks/usePlanetImage";
 import { athmosphereData  } from "../data/athmosphereData";
 import { surfaceData } from "../data/surfaceData";
 import { vegetationData } from "../data/vegetationData";
+import { habitabilityData } from "../data/habitabilityData";
 
 const AppContext = createContext();
 
@@ -24,15 +25,19 @@ const AppProvider = ({ children }) => {
             color: window.localStorage.getItem('planetVegetationColor').split(',') || [0,0,0],
             chemicals: vegetationData
         },
-        star: window.localStorage.getItem('planetStar') || 'sunLike'
+        star: window.localStorage.getItem('planetStar') || 'sunLike',
+        habitability: {
+            value: window.localStorage.getItem('planetHabitability') || true,
+            factors: habitabilityData
+        }
     });
 
     // const [isSubmit, setIsSubmit] = useState(false);
     const { isLoading, isError, planetData } = useFetch(planetQuery, currentUrl, setCurrentUrl);
 
-    const [prompt, setPrompt] = useState("loading...");
+    const [prompt, setPrompt] = useState(window.localStorage.getItem('planetPrompt') || `generate only one landscape, only one image, with sky of color light blue, trees of color green, lakes of color blue`);
 
-    const { isLoadingImage, isErrorImage, planetImageUrl } = usePlanetImage(planetQuery, prompt)
+    const { isLoadingImage, isErrorImage, planetImageUrl } = usePlanetImage(planetQuery, prompt);
 
     const searchPlanet = (input) => {
         setPlanetQuery(input);

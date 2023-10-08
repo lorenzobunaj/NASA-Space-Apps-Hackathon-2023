@@ -5,9 +5,6 @@ const Home = () => {
 
     return (
         <>
-            <Link to="/planets">
-                Go to Planets Page
-            </Link>
         </>
     );
 };

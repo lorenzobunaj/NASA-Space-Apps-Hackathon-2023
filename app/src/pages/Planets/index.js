@@ -6,9 +6,6 @@ const Planets = () => {
 
     return (
         <>
-            <Link to="/">
-                Go to Home Page
-            </Link>
             <PlanetForm/>
         </>
     );
