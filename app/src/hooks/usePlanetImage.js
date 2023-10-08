@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const url = 'https://localhost:5000/api/v1'
+const url = 'https://planet-render-production.up.railway.app/api/v1'
 
 const usePlanetImage = (planetQuery, prompt) => {
     const [isLoadingImage, setIsLoadingImage] = useState(true);
