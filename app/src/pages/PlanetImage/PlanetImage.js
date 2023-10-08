@@ -23,7 +23,7 @@ const PlanetImage = (data) => {
                                 textTransform: 'uppercase'
                             }}
                             to={{
-                                pathname: `${location.pathname}/..`
+                                pathname: `${location.pathname}/../`
                             }}
                         >
                             Return to Planet Page

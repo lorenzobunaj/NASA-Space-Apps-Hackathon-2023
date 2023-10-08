@@ -61,6 +61,8 @@ const PlanetImagePage = () => {
         )
     }
 
+    console.log(planetImageUrl)
+
     return (
         <>
 
